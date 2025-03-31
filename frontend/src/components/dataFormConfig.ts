@@ -14,6 +14,7 @@ export interface DataFormValues {
     soft_skills_score: number;
     networking_score: number;
     job_offers: number;
+    current_job_level: string;
     high_school_gpa: number;
     high_school_gpa_max: number;
     university_gpa: number;
@@ -30,9 +31,13 @@ const dataErrorMessage = {
     gpa_max: "Enter a valid number.",
     rank: "Enter a valid number.",
     high_school_gpa: "High school GPA cannot exceed its max value.",
+    high_school_gpa_max: "High school GPA cannot exceed its max value.",
     university_gpa: "University GPA cannot exceed its max value.",
+    university_gpa_max: "University GPA cannot exceed its max value.",
     sat_score: "SAT score cannot exceed its max value.",
-    university_ranking: "University ranking cannot exceed its max value."
+    sat_score_max: "SAT score cannot exceed its max value.",
+    university_ranking: "University ranking cannot exceed its max value.",
+    university_ranking_max: "University ranking cannot exceed its max value."
 };
 
 export interface DataCardProps {
@@ -51,6 +56,7 @@ export const dataFormSchema = z
         soft_skills_score: z.coerce.number().min(0).max(10),
         networking_score: z.coerce.number().min(0).max(10),
         job_offers: z.coerce.number().min(0),
+        current_job_level: z.string().min(1),
         high_school_gpa: z.coerce.number().min(0).multipleOf(0.01, { message: dataErrorMessage.gpa }),
         high_school_gpa_max: z.coerce.number().min(1, { message: dataErrorMessage.gpa_max }),
         university_gpa: z.coerce.number().min(0).multipleOf(0.01, { message: dataErrorMessage.gpa }),
@@ -60,11 +66,17 @@ export const dataFormSchema = z
         university_ranking: z.coerce.number().min(1).int({ message: dataErrorMessage.university_ranking }),
         university_ranking_max: z.coerce.number().min(1).int({ message: dataErrorMessage.university_ranking }),
     })
+    // TODO: rewrite the messages and check the bug with decimal numbers
     .superRefine((data, ctx) => {
         if (data.high_school_gpa > data.high_school_gpa_max) {
             ctx.addIssue({
                 path: ["high_school_gpa"],
                 message: dataErrorMessage.high_school_gpa,
+                code: z.ZodIssueCode.custom,
+            });
+            ctx.addIssue({
+                path: ["high_school_gpa_max"],
+                message: dataErrorMessage.high_school_gpa_max,
                 code: z.ZodIssueCode.custom,
             });
         }
@@ -74,6 +86,11 @@ export const dataFormSchema = z
                 message: dataErrorMessage.university_gpa,
                 code: z.ZodIssueCode.custom,
             });
+            ctx.addIssue({
+                path: ["university_gpa_max"],
+                message: dataErrorMessage.university_gpa_max,
+                code: z.ZodIssueCode.custom,
+            });
         }
         if (data.sat_score > data.sat_score_max) {
             ctx.addIssue({
@@ -81,11 +98,21 @@ export const dataFormSchema = z
                 message: dataErrorMessage.sat_score,
                 code: z.ZodIssueCode.custom,
             });
+            ctx.addIssue({
+                path: ["sat_score_max"],
+                message: dataErrorMessage.high_school_gpa,
+                code: z.ZodIssueCode.custom,
+            });
         }
         if (data.university_ranking > data.university_ranking_max) {
             ctx.addIssue({
                 path: ["university_ranking"],
                 message: dataErrorMessage.university_ranking,
+                code: z.ZodIssueCode.custom,
+            });
+            ctx.addIssue({
+                path: ["university_ranking_max"],
+                message: dataErrorMessage.high_school_gpa,
                 code: z.ZodIssueCode.custom,
             });
         }
@@ -102,6 +129,7 @@ export const dataDefaultValues: DataFormValues = {
     soft_skills_score: 0,
     networking_score: 0,
     job_offers: 0,
+    current_job_level: "",
     high_school_gpa: 0,
     high_school_gpa_max: 0,
     university_gpa: 0,
@@ -117,5 +145,5 @@ export interface PredictionProps {
     career_satisfaction: number,
     years_to_promotion: number;
     work_life_balance: number;
-    enterp_rec: number;
+    enterp_rec: boolean;
 };

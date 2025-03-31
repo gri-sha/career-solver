@@ -29,7 +29,7 @@ export default function Compare() {
         }
     }
 
-    const text: ReviewCardProps = {response: "Hello, World!"};
+    const text: ReviewCardProps = {response: "This functionality will be added soon..."};
 
     return (
         <>

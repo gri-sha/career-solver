@@ -1,15 +1,15 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableRow, TableCell } from "@/components/ui/table";
-import { PredictionProps } from "@/components/dataFormConfig";
 import { predictionCardStyles } from "@/components/styles";
+import { PredictionProps } from "@/components/dataFormConfig";
 
 export default function PredictionCard(prediction: PredictionProps) {
     return (
         <Card className={predictionCardStyles.card}>
-            <CardHeader>
+            <CardHeader className={predictionCardStyles.header}>
                 <CardTitle>Career Prediction</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className={predictionCardStyles.content}>
                 <Table className={predictionCardStyles.table}>
                     <TableBody>
                         {[
@@ -17,7 +17,7 @@ export default function PredictionCard(prediction: PredictionProps) {
                             { label: "Career Satisfaction", value: `${prediction.career_satisfaction}/10` },
                             { label: "Years to Promotion", value: `${prediction.years_to_promotion} years` },
                             { label: "Work-Life Balance", value: `${prediction.work_life_balance}/10` },
-                            { label: "Entrepreneurship Rec.", value: `${prediction.enterp_rec}/10` }
+                            { label: "Entrepreneurship Rec.", value: `${prediction.enterp_rec ? "Yes!" : "No :("}` },
                         ].map((item, index) => (
                             <TableRow key={index} className={predictionCardStyles.row}>
                                 <TableCell className={predictionCardStyles.label}>{item.label}</TableCell>

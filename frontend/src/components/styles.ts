@@ -11,32 +11,35 @@ export const aboutInfoCardStyles = {
     card: "bg-white p-6 rounded-xl shadow-md border border-zinc-100",
     container: "grid grid-cols-1 gap-10 items-end justify-center",
     label: "text-zinc-700 font-medium text-sm lg:text-base transition-all duration-300 ease-in-out",
-    input: "bg-white text-zinc-700 border border-zinc-100 rounded-md py-2 px-4 w-[150px]",
+    input: "bg-white text-zinc-700 border border-zinc-100 rounded-md py-2 px-4 w-[150px] md:w-[95%]",
     placeholder: "text-zinc-500",
     formMessage: "text-red-500 text-xs lg:text-sm transition-all duration-300 ease-in-out",
-    selectTrigger: "w-[150px] border border-zinc-100",
+    selectTrigger: " w-[150px] md:w-[95%] border border-zinc-100",
 };
 
 export const notesStatsCardStyles = {
     card: "bg-white p-6 rounded-xl shadow-md border border-zinc-100",
     container: "grid grid-cols-2 gap-10 items-end justify-center",
     label: "text-zinc-700 font-medium text-sm lg:text-base transition-all duration-300 ease-in-out",
-    input: "bg-white text-zinc-700 border border-zinc-100 rounded-md py-2 px-4 w-[90px] sm:w-[150px] transition-all duration-300 ease-in-out",
+    input: "bg-white text-zinc-700 border border-zinc-100 rounded-md py-2 px-4 w-[80%] transition-all duration-300 ease-in-out",
     formMessage: "text-red-500 text-xs lg:text-sm",
 };
 
 export const selfEvalCardStyles = {
     card: "bg-white p-6 rounded-xl shadow-md border border-zinc-100",
-    item: "mb-3",
+    container: "grid grid-cols-1 gap-10 items-end justify-center",
+    item: "",
     label: "text-zinc-700 font-medium text-sm lg:text-base transition-all duration-300 ease-in-out",
-    slider: "w-[200px] transition-all duration-300 ease-in-out",
-    sliderLabel: "flex flex-col items-center justify-center text-zinc-700 font-medium text-sm w-[200px]",
+    slider: "w-[95%] transition-all duration-300 ease-in-out",
+    sliderLabel: "flex flex-col items-center justify-center text-zinc-700 font-medium text-sm w-[95%]",
     formMessage: "text-red-500 text-xs lg:text-sm",
 };
 
 export const predictionCardStyles = {
-    card: "bg-white p-6 rounded-xl shadow-sm border border-zinc-100 flex sm:w-[70%]",
-    table: "w-full border-collapse text-left",
+    card: "bg-white p-6 rounded-xl shadow-sm border border-zinc-100 flex justify-center items-center w-full ",
+    header: "text-left w-full sm:w-[60%] mx-auto transition-all duration-300 ease-in-out",
+    content: "w-full flex justify-center items-center",
+    table: "text-left w-full sm:w-[60%] mx-auto transition-all duration-300 ease-in-out",
     row: "border-b last:border-none",
     label: "text-sm text-zinc-500 py-2",
     value: "text-xl font-bold py-2 text-right",
@@ -45,8 +48,9 @@ export const predictionCardStyles = {
 // form for student data input
 export const dataFormStyles = {
     container: "p-6 flex flex-col justify-center items-center space-y-6 mx-auto",
-    card: "bg-white p-3 rounded-xl shadow-sm border border-zinc-100 flex justify-center items-center",
-    innerContainer: "flex flex-col space-y-4 lg:flex-row w-full lg:space-x-4 lg:space-y-0 transition-all duration-300 ease-in-out",
+    card: "bg-white p-3 rounded-xl shadow-sm border border-zinc-100 flex justify-center items-center w-full",
+    innerContainer:
+        "flex flex-col space-y-4 lg:flex-row w-full lg:space-x-4 lg:space-y-0 transition-all duration-300 ease-in-out",
     form: "flex flex-col items-center space-y-4 w-full",
     button: "px-12 py-6 text-xl font-bold",
 };
@@ -64,9 +68,9 @@ export const cvInputCardStyles = {
 };
 
 export const reviewCardStyles = {
-    card: "bg-white p-6 rounded-xl shadow-sm border border-zinc-100 flex flex-col w-[80%]",
-    header: "text-lg font-semibold text-zinc-800 mb-2",
-    content: "text-base text-black",
+    card: "p-6 rounded-xl shadow-sm border border-zinc-100 flex justify-center items-center w-full ",
+    header: "text-left w-full sm:w-[60%] mx-auto transition-all duration-300 ease-in-out",
+    content: "text-base text-black w-full text-left sm:w-[60%] mx-auto",
 };
 
 // form for CV and job description input

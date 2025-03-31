@@ -8,6 +8,7 @@ import { aboutInfoCardStyles } from "@/components/styles";
 import genders from "@/data/genders.json";
 import countries from "@/data/countries.json";
 import studyFields from "@/data/studyFields.json";
+import jobLevels from "@/data/jobLevels.json";
 
 export default function AboutInfoCard({ form }: DataCardProps) {
     return (
@@ -27,7 +28,7 @@ export default function AboutInfoCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input type="number" placeholder="25" className={aboutInfoCardStyles.input} {...field} />
                                     </FormControl>
-                                    <FormMessage className={aboutInfoCardStyles.formMessage} />
+                                    {/* <FormMessage className={aboutInfoCardStyles.formMessage} /> */}
                                 </FormItem>
                             )}
                         />
@@ -53,7 +54,7 @@ export default function AboutInfoCard({ form }: DataCardProps) {
                                             </SelectContent>
                                         </Select>
                                     </FormControl>
-                                    <FormMessage className={aboutInfoCardStyles.formMessage} />
+                                    {/* <FormMessage className={aboutInfoCardStyles.formMessage} /> */}
                                 </FormItem>
                             )}
                         />
@@ -79,7 +80,7 @@ export default function AboutInfoCard({ form }: DataCardProps) {
                                             </SelectContent>
                                         </Select>
                                     </FormControl>
-                                    <FormMessage className={aboutInfoCardStyles.formMessage} />
+                                    {/* <FormMessage className={aboutInfoCardStyles.formMessage} /> */}
                                 </FormItem>
                             )}
                         />
@@ -105,7 +106,33 @@ export default function AboutInfoCard({ form }: DataCardProps) {
                                             </SelectContent>
                                         </Select>
                                     </FormControl>
-                                    <FormMessage className={aboutInfoCardStyles.formMessage} />
+                                    {/* <FormMessage className={aboutInfoCardStyles.formMessage} /> */}
+                                </FormItem>
+                            )}
+                        />
+                        <FormField
+                            control={form.control}
+                            name="current_job_level"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className={aboutInfoCardStyles.label}>Job Level</FormLabel>
+                                    <FormControl>
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <SelectTrigger className={aboutInfoCardStyles.selectTrigger}>
+                                                <SelectValue placeholder="Select currect job level" className={aboutInfoCardStyles.placeholder} />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                <SelectGroup>
+                                                    {jobLevels.map((option) => (
+                                                        <SelectItem key={option} value={option}>
+                                                            {option}
+                                                        </SelectItem>
+                                                    ))}
+                                                </SelectGroup>
+                                            </SelectContent>
+                                        </Select>
+                                    </FormControl>
+                                    {/* <FormMessage className={aboutInfoCardStyles.formMessage} /> */}
                                 </FormItem>
                             )}
                         />

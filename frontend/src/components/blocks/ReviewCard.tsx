@@ -6,8 +6,8 @@ import { ReviewCardProps } from "@/components/jobFormConfig";
 export default function ReviewCard({ response }: ReviewCardProps) {
     return (
         <Card className={reviewCardStyles.card}>
-            <CardHeader>
-                <CardTitle className={reviewCardStyles.header}>Review</CardTitle>
+            <CardHeader className={reviewCardStyles.header}>
+                <CardTitle>Review</CardTitle>
             </CardHeader>
             <CardContent className={reviewCardStyles.content}>{response}</CardContent>
         </Card>

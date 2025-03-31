@@ -36,7 +36,7 @@ export default function Predict() {
         career_satisfaction: 8,
         years_to_promotion: 3,
         work_life_balance: 7,
-        enterp_rec: 9,
+        enterp_rec: true,
     };
     return (
         <>

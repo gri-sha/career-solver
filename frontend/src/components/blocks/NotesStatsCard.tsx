@@ -22,7 +22,7 @@ export default function NotesStatsCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input className={notesStatsCardStyles.input} type="number" placeholder="3.75" {...field} />
                                     </FormControl>
-                                    <FormMessage className={notesStatsCardStyles.formMessage}/>
+                                    {/* <FormMessage className={notesStatsCardStyles.formMessage}/> */}
                                 </FormItem>
                             )}
                         />
@@ -35,7 +35,7 @@ export default function NotesStatsCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input className={notesStatsCardStyles.input} type="number" placeholder="4" {...field} />
                                     </FormControl>
-                                    <FormMessage className={notesStatsCardStyles.formMessage}/>
+                                    {/* <FormMessage className={notesStatsCardStyles.formMessage}/> */}
                                 </FormItem>
                             )}
                         />
@@ -48,7 +48,7 @@ export default function NotesStatsCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input className={notesStatsCardStyles.input} type="number" placeholder="1550" {...field} />
                                     </FormControl>
-                                    <FormMessage className={notesStatsCardStyles.formMessage}/>
+                                    {/* <FormMessage className={notesStatsCardStyles.formMessage}/> */}
                                 </FormItem>
                             )}
                         />
@@ -61,7 +61,7 @@ export default function NotesStatsCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input className={notesStatsCardStyles.input} type="number" placeholder="1600" {...field} />
                                     </FormControl>
-                                    <FormMessage className={notesStatsCardStyles.formMessage}/>
+                                    {/* <FormMessage className={notesStatsCardStyles.formMessage}/> */}
                                 </FormItem>
                             )}
                         />
@@ -74,7 +74,7 @@ export default function NotesStatsCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input className={notesStatsCardStyles.input} type="number" placeholder="3.75" {...field} />
                                     </FormControl>
-                                    <FormMessage className={notesStatsCardStyles.formMessage}/>
+                                    {/* <FormMessage className={notesStatsCardStyles.formMessage}/> */}
                                 </FormItem>
                             )}
                         />
@@ -87,7 +87,7 @@ export default function NotesStatsCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input className={notesStatsCardStyles.input} type="number" placeholder="4" {...field} />
                                     </FormControl>
-                                    <FormMessage className={notesStatsCardStyles.formMessage}/>
+                                    {/* <FormMessage className={notesStatsCardStyles.formMessage}/> */}
                                 </FormItem>
                             )}
                         />
@@ -100,7 +100,7 @@ export default function NotesStatsCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input className={notesStatsCardStyles.input} type="number" placeholder="20" {...field} />
                                     </FormControl>
-                                    <FormMessage className={notesStatsCardStyles.formMessage}/>
+                                    {/* <FormMessage className={notesStatsCardStyles.formMessage}/> */}
                                 </FormItem>
                             )}
                         />
@@ -113,7 +113,7 @@ export default function NotesStatsCard({ form }: DataCardProps) {
                                     <FormControl>
                                         <Input className={notesStatsCardStyles.input}type="number" placeholder="200" {...field} />
                                     </FormControl>
-                                    <FormMessage className={notesStatsCardStyles.formMessage}/>
+                                    {/* <FormMessage className={notesStatsCardStyles.formMessage}/> */}
                                 </FormItem>
                             )}
                         />
