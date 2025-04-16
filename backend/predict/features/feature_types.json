@@ -1,0 +1,22 @@
+{
+    "Age": "int",
+    "Gender": "str",
+    "High_School_GPA": "float",
+    "SAT_Score": "float",
+    "University_Ranking": "float",
+    "University_GPA": "float",
+    "Field_of_Study": "str",
+    "Internships_Completed": "int",
+    "Projects_Completed": "int",
+    "Certifications": "int",
+    "Soft_Skills_Score": "float",
+    "Networking_Score": "float",
+    "Job_Offers": "int",
+    "Current_Job_Level": "str",
+    "Starting_Salary": "int",
+    "Career_Satisfaction": "float",
+    "Years_to_Promotion": "float",
+    "Work_Life_Balance": "float",
+    "Entrepreneurship": "str"
+  }
+  
