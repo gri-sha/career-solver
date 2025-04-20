@@ -7,7 +7,7 @@ export interface DataFormValues {
     age: number;
     gender: string;
     country: string;
-    study_field: string;
+    field_of_study: string;
     interships: number;
     projects: number;
     certifications: number;
@@ -49,7 +49,7 @@ export const dataFormSchema = z
         age: z.coerce.number().min(1, { message: dataErrorMessage.age }).max(100, { message: dataErrorMessage.age }),
         gender: z.string().min(1),
         country: z.string().min(1),
-        study_field: z.string().min(1),
+        field_of_study: z.string().min(1),
         interships: z.coerce.number().min(0),
         projects: z.coerce.number().min(0),
         certifications: z.coerce.number().min(0),
@@ -122,7 +122,7 @@ export const dataDefaultValues: DataFormValues = {
     age: 0,
     gender: "",
     country: "",
-    study_field: "",
+    field_of_study: "",
     interships: 0,
     projects: 0,
     certifications: 0,
@@ -145,5 +145,23 @@ export interface PredictionProps {
     career_satisfaction: number,
     years_to_promotion: number;
     work_life_balance: number;
-    enterp_rec: boolean;
+    entrepreneurship: boolean;
 };
+
+export interface DataSendValues {
+    age: number;
+    gender: string;
+    country: string;
+    field_of_study: string;
+    internships: number;
+    projects: number;
+    certifications: number;
+    soft_skills_score: number;
+    networking_score: number;
+    job_offers: number;
+    current_job_level: string;
+    high_school_gpa: number;
+    university_gpa: number;
+    sat_score: number;
+    university_ranking: number;
+}

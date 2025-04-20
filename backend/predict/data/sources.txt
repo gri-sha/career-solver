@@ -1,1 +1,2 @@
 https://www.kaggle.com/datasets/adilshamim8/education-and-career-success?resource=download
+https://ourworldindata.org/grapher/gross-national-income-per-capita-worldbank

@@ -86,7 +86,7 @@ export default function AboutInfoCard({ form }: DataCardProps) {
                         />
                         <FormField
                             control={form.control}
-                            name="study_field"
+                            name="field_of_study"
                             render={({ field }) => (
                                 <FormItem>
                                     <FormLabel className={aboutInfoCardStyles.label}>Field of Study</FormLabel>

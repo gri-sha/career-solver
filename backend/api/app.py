@@ -1,45 +1,55 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import numpy as np
 import pandas as pd
+import logging
 import joblib
 import json
 import os
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:3000"])
+logging.basicConfig(level=logging.DEBUG)
 
-print(os.getcwd())
+reg_model = joblib.load('predict/models/reg_model.pkl')
+class_model = joblib.load('predict/models/class_model.pkl')
+input_features = joblib.load('predict/features/input_features.pkl')
+num_out_features = joblib.load('predict/features/num_out_features.pkl')
+cat_out_features = joblib.load('predict/features/cat_out_features.pkl')
 
-reg_model = joblib.load('backend/predict/models/reg_model.pkl')
-class_model = joblib.load('backend/predict/models/class_model.pkl')
-input_features = joblib.load('backend/predict/features/input_features.pkl')
-num_out_features = joblib.load('backend/predict/features/num_out_features.pkl')
-cat_out_features = joblib.load('backend/predict/features/cat_out_features.pkl')
+print(input_features)
 
-with open('backend/predict/features/feature_types.json') as f:
+with open('predict/features/feature_types.json') as f:
     feature_types = json.load(f)
+
+with open('predict/data/income_by_country.json') as f:
+    incomes = json.load(f)
 
 
 type_map = {
     "int": int,
     "float": float,
-    "str": str
+    "str": str,
+    # "bool": bool
 }
 
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
+    logging.info(f"Received data: {data}")
     if not data:
+        logging.warning("No data provided in request")
         return jsonify({'error': 'No data provided'}), 400
 
     try:
         # arrange input in correct feature order
-        processed_data = []
+        input_data = []
         for feature in input_features:
             value = data[feature]
             data_type = type_map[feature_types[feature]]
-            processed_data.append(data_type(value))
+            input_data.append(data_type(value))
 
-        input_df = pd.DataFrame([processed_data], columns=input_features)
+        input_df = pd.DataFrame([input_data], columns=input_features)
 
         reg_pred = reg_model.predict(input_df)
         class_pred = class_model.predict(input_df)
@@ -53,14 +63,20 @@ def predict():
             res[feature] = class_pred[i]  # there is only 1 categotical output feature, so there is no 2d array
         
         # the convertion from numpy types is not needed, it is automatic
-        # for k, v in res.items():
-        #     res[k] = round(v.item()) if type(v.item()) == float else v.item()
+        for k, v in res.items():
+            res[k] = round(v.item()) if isinstance(v, np.float64) else v
 
+        # we will send bool instead of str
+        res["entrepreneurship"] = False if res["entrepreneurship"] == "No" else True
+
+        # adjust the salary prediction by country
+        res["starting_salary"] = res["starting_salary"] / incomes["United States"] * incomes[data["country"]]
+
+        logging.info(f"Prediction result: {res}")
         return jsonify(res)
 
-    except KeyError as e:
-        return jsonify({'error': f'Missing input feature: {e}'}), 400
     except Exception as e:
+        logging.exception(f"Error during prediction: {e}")
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
