@@ -1,5 +1,5 @@
-##Getting Started
-###Backend Setup
+## Getting Started
+### Backend Setup
 
 1. Open a terminal and navigate to the backend folder:
 
@@ -32,7 +32,7 @@ python predict/train_script.py
 python api/app.py
 ```
 
-###Frontend Setup
+### Frontend Setup
 
 1. Open a new terminal window and navigate to the frontend folder:
 
